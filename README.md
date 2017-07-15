@@ -2,8 +2,8 @@
 
 > 有意思没意思是个意思哟  
 
-### [01: Snake]
-<p align="center"><img width="100%"src="https://github.com/skyasker/c-projects/blob/master/docs/images/snake.png"></p> 
+### [01] Snake:
+<p align="center"><img width="60%" src="https://github.com/skyasker/c-projects/blob/master/docs/images/snake.png"></p> 
 
 
 
