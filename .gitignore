@@ -1,3 +1,4 @@
-*.o
+*/obj/*
+!*/obj/.gitkeep
 */bin/*
 !*/bin/.gitkeep
