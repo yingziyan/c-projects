@@ -80,7 +80,8 @@ int score = 0;
  */
 void greeting()
 {
-    printf("\n\t[hello!]\n\n");
+    printf("\n    [Hello! Welcom]\n");
+    printf("\n  输入 b 回车开始游戏\n\n");
 }
 
 
