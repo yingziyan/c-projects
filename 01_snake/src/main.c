@@ -8,7 +8,7 @@
 
 
 // 自定义头文件
-#include "utilities.h"       // bool kbhit()
+#include "utilities.h"       // bool | kbhit()
 #include "snake.h"
 
 
@@ -36,7 +36,7 @@ int main(void)
         // 检测是否有键盘输入改变方向
         change_direction();
 
-        // 清楚上一次移动的快照
+        // 清除上一次移动的快照
         system("clear");
 
         // 把蛇移动到下一位置

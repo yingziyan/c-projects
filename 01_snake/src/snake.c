@@ -9,42 +9,34 @@
 
 
 #include "utilities.h"       // bool | kbhit()
+#include "snake.h"
 
-
-// 宏定义
-#define MAX_SNAKE_LENGTH    30      // 蛇的最大长度
-#define BLOCK_WIDTH         3       // 方块的字节宽度
-#define BLOCK               "回"
-#define NON_BLOCK           "　"    // 圆角空格
 
 // 变量申明
 // 初始化快照
 char snapshot[21][20 * BLOCK_WIDTH + 1] = {
-    "回回回回回回回回回回回回回回回回回回回回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",
-    "回　　　　　　　　　　　　　　　　　　回\n",            
-    "回回回回回回回回回回回回回回回回回回回回\n",
+    "口口口口口口口口口口口口口口口口口口口口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",
+    "口　　　　　　　　　　　　　　　　　　口\n",            
+    "口口口口口口口口口口口口口口口口口口口口\n",
     "\n"
 }; 
-
-// 蛇节点方向
-enum direction {UP = -1, RIGHT = BLOCK_WIDTH, DOWN = 1, LEFT = -BLOCK_WIDTH};
 
 // 用数组表示蛇的信息，三元组数组，数组长度表示当前蛇的长度
 // 三元组前两两个元素表示蛇的位置，最后一个元素表示蛇的该节点移动方向
@@ -54,10 +46,10 @@ int snake[MAX_SNAKE_LENGTH][3] = {0};
 int snake_length = 3;
 
 // 蛇的当前移动方向
-enum direction current_direction = LEFT;
+direction current_direction = LEFT;
 
 // 是否存在食物
-enum bool is_has_food = FALSE;
+bool is_has_food = FALSE;
 
 // 定义食物
 int food_x, food_y;
@@ -67,9 +59,6 @@ bool is_at_edge = FALSE;
 
 // 得分
 int score = 0;
-
-
-
 
 
 // 函数定义
@@ -85,8 +74,6 @@ void greeting()
 }
 
 
-
-
 /**
  * @parameter: [void]
  * @return: [void]
@@ -98,8 +85,6 @@ void print_snapshot()
     printf("%s", snapshot[0]);
     printf("[[ Score: %3d        Snake Length: %2d ]]\n\n", score, snake_length);
 }
-
-
 
 
 /**
@@ -118,8 +103,6 @@ void draw_snake()
         strncpy(&snapshot[snake[i][0]][snake[i][1]], BLOCK, BLOCK_WIDTH);
     }
 }
-
-
 
 
 /**
@@ -150,8 +133,6 @@ void init_snake()
     draw_snake();
 
 }
-
-
 
 
 /**
@@ -193,8 +174,6 @@ void move_snake()
 }
 
 
-
-
 /**
 * @parameter: [void]
 * @return: [void]
@@ -202,7 +181,7 @@ void move_snake()
 */
 void change_direction()
 {
-    enum direction current = snake[0][2];
+    direction current = snake[0][2];
     switch (kbhit())
     {
         case 'w':
@@ -232,8 +211,6 @@ void change_direction()
 }
 
 
-
-
 /**
 * @parameter: [void]
 * @return: [bool]
@@ -258,8 +235,6 @@ bool is_snake_die()
 }
 
 
-
-
 /**
 * @parameter: [void]
 * @return: [void]
@@ -279,13 +254,11 @@ void create_food()
         ;
 
     // 把食物画到快照上
-    strncpy(&snapshot[food_x][food_y], "口", BLOCK_WIDTH);
+    strncpy(&snapshot[food_x][food_y], FOOD, BLOCK_WIDTH);
 
     // 改变是否食物存在状态
     is_has_food = TRUE;
 }
-
-
 
 
 /**

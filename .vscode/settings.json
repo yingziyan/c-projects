@@ -1,0 +1,18 @@
+{
+    "files.associations": {
+        "snake.c": "cpp",
+        "unistd.h": "c",
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "*.tcc": "cpp",
+        "stdlib.h": "c",
+        "basic_ios.tcc": "c",
+        "basic_string.h": "c",
+        "map.h": "c",
+        "system_error": "c",
+        "string": "c",
+        "sstream": "cpp",
+        "iosfwd": "cpp",
+        "fstream": "cpp"
+    }
+}
